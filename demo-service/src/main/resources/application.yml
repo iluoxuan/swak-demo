@@ -20,3 +20,17 @@ spring:
       idle-timeout: 300000
       #连接的最大生命周期，超过这个时间将被关闭，单位是毫秒
       max-lifetime: 2000000
+# swak 文档配置
+knife4j:
+  enable: true
+  cors: true
+  openapi:
+    title: "swak分层"
+    concat: "ljq"
+    version: "1.0.0"
+    group:
+      admin:
+        groupName: "管理后台"
+        api-rule-resources:
+          - "com.swak.demo.web.controller"
+
