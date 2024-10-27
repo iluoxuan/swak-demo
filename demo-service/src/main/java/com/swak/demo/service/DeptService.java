@@ -8,6 +8,7 @@ import com.swak.demo.dao.domain.SysDeptDo;
 import com.swak.demo.dao.domain.SysMenuDo;
 import com.swak.demo.dao.mapper.SysDeptMapper;
 import com.swak.demo.dao.mapper.SysMenuMapper;
+import com.swak.demo.entity.test.TestDataReq;
 import com.swak.lib.client.entity.PageRes;
 import com.swak.lib.client.exception.SwakBizException;
 import com.swak.lib.client.exception.SysBizError;
@@ -90,5 +91,10 @@ public class DeptService {
 
         return null;
 
+    }
+
+    public void testDate(TestDataReq req) {
+
+        System.out.println(req.getStartDate());
     }
 }

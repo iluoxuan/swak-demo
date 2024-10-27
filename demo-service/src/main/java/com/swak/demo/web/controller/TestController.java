@@ -2,6 +2,7 @@ package com.swak.demo.web.controller;
 
 import com.swak.demo.api.entity.DeptPageReq;
 import com.swak.demo.dao.domain.SysDeptDo;
+import com.swak.demo.entity.test.TestDataReq;
 import com.swak.demo.service.DeptService;
 import com.swak.lib.client.entity.ApiRes;
 import com.swak.lib.client.entity.PageRes;
@@ -49,5 +50,11 @@ public class TestController {
     @GetMapping("/batchInsert")
     public ApiRes<SysDeptDo> batchInsert() {
         return ApiRes.success(deptService.batchInsert());
+    }
+
+    @PostMapping("/testDate")
+    public ApiRes<Void> testDate(@Valid @RequestBody TestDataReq req) {
+        deptService.testDate(req);
+        return ApiRes.success();
     }
 }
