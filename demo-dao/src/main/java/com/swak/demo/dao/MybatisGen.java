@@ -21,7 +21,7 @@ public class MybatisGen extends MybatisPlusBaseGen {
         genInfo.setJdbcUrl(url);
         genInfo.setModelName("demo-dao");
         genInfo.setPackageName("com.swak.demo.dao");
-        genInfo.setGenTableName("sys_dept");
+        genInfo.setGenTableName("sys_menu");
         new MybatisGen().gen(genInfo);
 
     }

@@ -33,4 +33,5 @@ knife4j:
         groupName: "管理后台"
         api-rule-resources:
           - "com.swak.demo.web.controller"
+    url: "http://localhost:8080/doc.html"
 

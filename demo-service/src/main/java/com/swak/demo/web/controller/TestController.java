@@ -38,6 +38,14 @@ public class TestController {
         return ApiRes.success(deptService.pageList(req));
     }
 
+    @ApiOperation("事务测试")
+    @PostMapping("/tran")
+    public ApiRes<Void> tran() {
+        deptService.testTran();
+        return ApiRes.success();
+    }
+
+
     @GetMapping("/batchInsert")
     public ApiRes<SysDeptDo> batchInsert() {
         return ApiRes.success(deptService.batchInsert());
