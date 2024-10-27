@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 /**
  * @author: ljq
@@ -54,6 +55,14 @@ public class TestController {
 
     @PostMapping("/testDate")
     public ApiRes<Void> testDate(@Valid @RequestBody TestDataReq req) {
+        deptService.testDate(req);
+        return ApiRes.success();
+    }
+
+    @PostMapping("/testDateFrom")
+    public ApiRes<Void> testDateForm(@RequestParam("date") Date date) {
+        TestDataReq req = new TestDataReq();
+        req.setStartDate(date);
         deptService.testDate(req);
         return ApiRes.success();
     }
