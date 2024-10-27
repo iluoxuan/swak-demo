@@ -2,6 +2,7 @@ package com.swak.demo.service;
 
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.swak.demo.api.base.SwakDemoError;
 import com.swak.demo.api.entity.DeptPageReq;
 import com.swak.demo.dao.domain.SysDeptDo;
 import com.swak.demo.dao.domain.SysMenuDo;
@@ -10,6 +11,7 @@ import com.swak.demo.dao.mapper.SysMenuMapper;
 import com.swak.lib.client.entity.PageRes;
 import com.swak.lib.client.exception.SwakBizException;
 import com.swak.lib.client.exception.SysBizError;
+import com.swak.lib.common.tools.AssertTools;
 import com.swak.lib.dao.mybatis.plus.PageTools;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.info.BuildProperties;
@@ -35,7 +37,10 @@ public class DeptService {
 
     public SysDeptDo getDept(String name) {
 
-        return sysDeptMapper.getByName(name);
+        SysDeptDo sysDept = sysDeptMapper.getByName(name);
+        AssertTools.notNull(sysDept, "sysDept is null");
+        AssertTools.state(sysDept.getDeptId().equals(name), SwakDemoError.DEPT_ID_ERROR);
+        return sysDept;
     }
 
     @Transactional(rollbackFor = Exception.class)

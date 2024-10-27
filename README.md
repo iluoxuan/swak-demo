@@ -39,3 +39,4 @@ public interface SysDeptMapper extends BaseMapper<SysDeptDo> {
 * 引入swak-common: 提供了相关所需要的包，文档，验证
 * web层全局异常 继承 AbstractExceptionHandler 打上注解
 * knife4j 接口文档配置yml即可
+* 统一了jackson使用,常见的问题
