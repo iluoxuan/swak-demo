@@ -15,6 +15,7 @@ import com.swak.lib.client.exception.SysBizError;
 import com.swak.lib.common.tools.AssertTools;
 import com.swak.lib.dao.mybatis.plus.PageTools;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +27,7 @@ import java.util.Optional;
  * @author: ljq
  * @date: 2024/10/26
  */
+@Slf4j
 @AllArgsConstructor
 @Service
 public class DeptService {
@@ -42,10 +44,13 @@ public class DeptService {
         AssertTools.notNull(sysDept, "sysDept is null");
         AssertTools.state(sysDept.getDeptId().equals(name), SwakDemoError.DEPT_ID_ERROR);
         return sysDept;
+
     }
 
     @Transactional(rollbackFor = Exception.class)
     public void testTran() {
+
+        log.info("test");
 
         SysDeptDo sysDeptDo = new SysDeptDo();
         sysDeptDo.setDeptId(IdWorker.getId());
@@ -65,7 +70,6 @@ public class DeptService {
             System.out.println(buildProperties.get().getName());
             System.out.println(buildProperties.get().getVersion());
         }
-
 
         if (true) {
             throw new SwakBizException(SysBizError.SYS_ERROR);

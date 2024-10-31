@@ -6,6 +6,7 @@ import com.swak.demo.entity.test.TestDataReq;
 import com.swak.demo.service.DeptService;
 import com.swak.lib.client.entity.ApiRes;
 import com.swak.lib.client.entity.PageRes;
+import com.swak.lib.common.annotion.LogTrace;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.Date;
  * @author: ljq
  * @date: 2024/10/24
  */
+@LogTrace
 @Api("测试")
 @AllArgsConstructor
 @RequestMapping("/test")

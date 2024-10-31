@@ -35,3 +35,8 @@ knife4j:
           - "com.swak.demo.web.controller"
     url: "http://localhost:8080/doc.html"
 
+swak:
+  log-trace:
+    headers:
+      - token
+      - marketCode
